@@ -3,21 +3,18 @@ import { faker } from '@faker-js/faker';
 import Customer from "./Customer";
 import '../App.css';
 
-const generateRandomEmail = (firstName, lastName) => {
-  const username = `${firstName.toLowerCase()}.${lastName.toLowerCase()}`;
-  const email = `${username}@gmail.com`;
-  return email;
-};
-
 const generateRandomCustomer = () => {
   const firstName = faker.person.firstName();
   const lastName = faker.person.lastName();
+  const username = `${firstName.toLowerCase()}.${lastName.toLowerCase()}`;
+  const email = `${username}@gmail.com`;
+
   return {
     id: faker.string.uuid(),
     firstName: firstName,
     lastName: lastName,
     phoneNumber: faker.phone.number(),
-    email: generateRandomEmail(firstName, lastName),
+    email: email,
     avatar: faker.internet.avatar(),
     job: faker.person.jobTitle()
   };
@@ -28,9 +25,7 @@ const Customers = () => {
   const [customersList, setCustomersList] = useState([]);
 
   useEffect(() => {
-    const initialCustomers = Array.from({ length: 100 }, generateRandomCustomer);
-
-    initialCustomers.sort((a, b) => {
+    const initialCustomers = Array.from({ length: 100 }, generateRandomCustomer).sort((a, b) => {
       return a.firstName.localeCompare(b.firstName) || a.lastName.localeCompare(b.lastName);
     });
 
@@ -45,7 +40,7 @@ const Customers = () => {
     <div className="container">
       <div className="row">
         <div className="col">
-          <h2>Customers list</h2>
+          <h2>Customer list</h2>
           <div className="customer-list">
             <ul>
               {customersList.map((customerData) => (
