@@ -21,7 +21,7 @@ const Customer = (props) => {
     <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src={avatar} />
       <Card.Body>
-        <Card.Title>{firstName} - {lastName}</Card.Title>
+        <Card.Title>{firstName} {lastName}</Card.Title>
         <Card.Text>
           {job}
         </Card.Text>
