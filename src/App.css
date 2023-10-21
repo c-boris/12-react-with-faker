@@ -1,0 +1,36 @@
+body {
+  background: linear-gradient(90deg, #3F2B96 0%, #A8C0FF 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.jumbotron {
+  width: 800px;
+  height: 600px;
+  background-color: #fff;
+  border: 1px solid #000;
+  padding: 30px;
+  
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  cursor: pointer;
+}
+
+li:hover {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.customer-list {
+  max-height: 400px;
+  overflow-y: auto;
+}
